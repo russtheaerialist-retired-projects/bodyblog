@@ -19,6 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   map.root :controller => "calendar"
+  map.connect 'calendar/:year/:month', :controller=>"calendar", :action=>"show"
 
   # map.connect ':controller/:action/:id'
   # map.connect ':controller/:action/:id.:format'
