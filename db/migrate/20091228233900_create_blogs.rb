@@ -1,6 +1,6 @@
 class CreateBlogs < ActiveRecord::Migration
   def self.up
-    create_table :blog do |t|
+    create_table :blogs do |t|
       t.string :slug
       t.string :title
       t.text :body
@@ -18,6 +18,6 @@ class CreateBlogs < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :blog
+    drop_table :blogs
   end
 end

@@ -1,4 +1,6 @@
 class PhotoTypesController < ApplicationController
+    before_filter :require_user, :only => [ :new, :create ]
+
     def index
         @photo_types = PhotoType.find(:all)
  

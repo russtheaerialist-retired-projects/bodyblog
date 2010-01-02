@@ -4,6 +4,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
+    ID_ACCT_NO = '<put your code here>';
+
     filter_parameter_logging :password, :password_confirmation
     helper_method :current_user_session, :current_user
 

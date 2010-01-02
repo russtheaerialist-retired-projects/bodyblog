@@ -1,0 +1,4 @@
+@body_photo.operate do |i|
+    i.background :color=>'#fff8', :blending=>:overlay
+    i.resize '134x134', :crop=>true
+end

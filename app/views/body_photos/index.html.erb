@@ -1,6 +1,5 @@
-<%= @body_photos %>
 <p>
 <% for body_photo in @body_photos %>
-    <%= image_tag formatted_body_photo_path(body_photo, :jpg) %>
+    <%= image_tag thumbnail_body_photo_path(body_photo, :jpg) %>
 <% end %>
 </p>

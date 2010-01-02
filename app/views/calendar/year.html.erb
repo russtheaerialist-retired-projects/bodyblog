@@ -1,0 +1,11 @@
+<%- @posts.each do |month, entries| -%>
+  <div class="month">
+  <h1><%= Date::MONTHNAMES[month] %> <%= @year %></h1>
+  <div class="post_list">
+  <%= link_to 'View Calendar', archive_path(:month=>month, :year=>@year) %>
+  <%- entries.each do |entry| %>
+    , <%= link_to entry.created_at.mday, blog_path(entry) -%>
+  <%- end -%>
+  </div>
+  </div>
+<%- end -%>

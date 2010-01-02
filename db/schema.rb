@@ -9,11 +9,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091229002533) do
+ActiveRecord::Schema.define(:version => 20100102040740) do
 
-  create_table "blog", :force => true do |t|
-    t.string   "slug"
-    t.string   "title"
+  create_table "blogs", :force => true do |t|
     t.text     "body"
     t.float    "weight"
     t.float    "waist"

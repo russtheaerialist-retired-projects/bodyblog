@@ -1,0 +1,42 @@
+<td id="date_<%= day %>"
+<%- if post.body_photos.count > 0 -%>
+<%- body_photo = BodyPhoto.find_first_displayable_for_blog(post) -%>
+<%- if body_photo -%>
+class="body_photo_present" style="background-image: url(
+<%- if is_today -%>
+<%= calendar_highlight_body_photo_path(body_photo, :jpg) -%>
+<%- else -%>
+<%= calendar_body_photo_path(body_photo, :jpg) -%>
+<%- end -%>
+)"
+<%- end -%>
+<%- end -%>
+>
+<a href="<%= blog_path(post) -%>" class="selected_day">
+<span class="day"><%= day %></span>
+<%- if post.weight -%>
+<span class="weight">W</span>
+<%- end -%>
+<%- if post.waist -%>
+<span class="waist">T</span>
+<%- end -%>
+<%- if post.chest -%>
+<span class="chest">C</span>
+<%- end -%>
+<%- if post.hips -%>
+<span class="hips">H</span>
+<%- end -%>
+<%- if post.bodyfat -%>
+<span class="bodyfat">%</span>
+<%- end -%>
+<%- if post.calories_burned -%>
+<span class="burned">B</span>
+<%- end -%>
+<%- if post.calories_eaten -%>
+<span class="eaten">E</span>
+<%- end -%>
+<%- if post.hours_slept -%>
+<span class="slept">S</span>
+<%- end -%>
+</a>
+</td>

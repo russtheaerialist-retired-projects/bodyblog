@@ -1,0 +1,54 @@
+<% form_for @blog do |f| %>
+<p>
+   <%= f.label(:body) %>
+   <%= f.text_area(:body) %>
+   <%- if @blog.errors.on(:body) %><span class="form_error"><%= @blog.errors.on(:body) %></span><% end -%>
+</p>
+<h2>Statistics</h2>
+<h3>Body Composition</h3>
+<p>
+   <%= f.label(:weight) %>
+   <%= f.text_field(:weight) %> pounds
+   <%- if @blog.errors.on(:weight) %><span class="form_error"><%= @blog.errors.on(:weight) %></span><% end -%>
+</p>
+<p>
+   <%= f.label(:bodyfat) %>
+   <%= f.text_field(:bodyfat) %> percent
+   <%- if @blog.errors.on(:bodyfat) %><span class="form_error"><%= @blog.errors.on(:bodyfat) %></span><% end -%>
+</p>
+<h3>Measurements</h3>
+<p>
+   <%= f.label(:chest) %>
+   <%= f.text_field(:chest) %> inches
+   <%- if @blog.errors.on(:chest) %><span class="form_error"><%= @blog.errors.on(:chest) %></span><% end -%>
+</p>
+<p>
+   <%= f.label(:waist) %>
+   <%= f.text_field(:waist) %> inches
+   <%- if @blog.errors.on(:waist) %><span class="form_error"><%= @blog.errors.on(:waist) %></span><% end -%>
+</p>
+<p>
+   <%= f.label(:hips) %>
+   <%= f.text_field(:hips) %> inches
+   <%- if @blog.errors.on(:hips) %><span class="form_error"><%= @blog.errors.on(:hips) %></span><% end -%>
+</p>
+<h3>Energy</h3>
+<p>
+   <%= f.label(:calories_eaten) %>
+   <%= f.text_field(:calories_eaten) %> calories
+   <%- if @blog.errors.on(:calories_eaten) %><span class="form_error"><%= @blog.errors.on(:calories_eaten) %></span><% end -%>
+</p>
+<p>
+   <%= f.label(:calories_burned) %>
+   <%= f.text_field(:calories_burned) %> calories
+   <%- if @blog.errors.on(:calories_burned) %><span class="form_error"><%= @blog.errors.on(:calories_burned) %></span><% end -%>
+</p>
+<p>
+   <%= f.label(:hours_slept) %>
+   <%= f.text_field(:hours_slept) %> calories
+   <%- if @blog.errors.on(:hours_slept) %><span class="form_error"><%= @blog.errors.on(:hours_slept) %></span><% end -%>
+</p>
+<p>
+   <%= f.submit "Post" %>
+</p>
+<% end %>

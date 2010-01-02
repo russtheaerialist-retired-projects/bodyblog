@@ -1,0 +1,3 @@
+@body_photo.operate do |i|
+    i.resize '134x134', :crop=>true
+end

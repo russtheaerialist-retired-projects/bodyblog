@@ -1,0 +1,18 @@
+<% form_for @body_photo, :html => { :multipart => true } do |f| %>
+    <p>
+       <%= f.label :image_file %>
+       <%= f.file_field :image_file %>
+   </p>
+    <p>
+       <%= f.label :photo_type %>
+       <%= f.collection_select :photo_type_id, PhotoType.all, :id, :name %>
+   </p>
+    <p>
+       <%= f.label :public %>
+       <%= f.check_box :public %>
+   </p>
+   <p>
+       <%= f.submit "Upload" %>
+   </p>
+<%= f.hidden_field(:blog_id) %>
+<% end %>

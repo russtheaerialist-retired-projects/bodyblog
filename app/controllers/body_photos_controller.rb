@@ -1,6 +1,12 @@
 class BodyPhotosController < ApplicationController
+    before_filter :require_user, :only => [ :new, :create ]
+
     def new
         @body_photo = BodyPhoto.new(params[:body_photo])
+        @params = params
+        if (params[:blog_id])
+            @body_photo.blog_id = params[:blog_id]
+        end
     end
 
     def index
@@ -13,7 +19,7 @@ class BodyPhotosController < ApplicationController
             redirect_to body_photo_url(@body_photo)
         else
             flash[:notice] = 'Your photo is invalid'
-            render :action => new
+            render :action => 'new'
         end
     end
 
@@ -26,5 +32,17 @@ class BodyPhotosController < ApplicationController
           format.png # show.jpg.flexi
           format.xml { render :xml => @photo_file }
         end
+    end
+
+    def calendar
+        show
+    end
+
+    def thumbnail
+        show
+    end
+
+    def calendar_highlight
+        show
     end
 end

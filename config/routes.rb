@@ -1,7 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :photo_types
 
-  map.resources :body_photos
+  map.resources :body_photos, :member => { :calendar => :get,
+                                           :calendar_highlight => :get,
+                                           :thumbnail => :get }
 
   map.resources :blogs
 
@@ -19,7 +21,10 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   map.root :controller => "calendar"
-  map.connect 'calendar/:year/:month', :controller=>"calendar", :action=>"show"
+  map.archive ':year/:month', :controller=>"calendar", :action=>"show"
+  map.year ':year', :controller=>"calendar", :action=>"year"
+  map.archive_formatted ':year/:month.:format',
+              :controller=>"calendar", :action=>"show"
 
   # map.connect ':controller/:action/:id'
   # map.connect ':controller/:action/:id.:format'
