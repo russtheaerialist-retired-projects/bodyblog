@@ -43,11 +43,11 @@
 }
 
 #calendar .today {
-	background: lightgray;
+	background: #FF6600;
 }
 
 #calendar .highlight {
-	background: lightblue;
+	background: #FF8822;
 }
 
 #calendar .selected_day,

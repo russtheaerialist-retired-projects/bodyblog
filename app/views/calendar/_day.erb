@@ -10,6 +10,8 @@ class="body_photo_present" style="background-image: url(
 <%- end -%>
 )"
 <%- end -%>
+<%- else -%>
+class="<%- if is_today -%>today<%- else -%>highlight<%- end -%>"
 <%- end -%>
 >
 <a href="<%= blog_path(post) -%>" class="selected_day">
