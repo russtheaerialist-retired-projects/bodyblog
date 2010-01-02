@@ -1,3 +1,4 @@
+<%- content_for :title, "Entry for " << @blog.created_at.mday.to_s << " " << Date::MONTHNAMES[@blog.created_at.month] << " " << @blog.created_at.year.to_s -%>
 <h1> <%= @blog.created_at.mday %> <%= Date::MONTHNAMES[@blog.created_at.month] %> <%= @blog.created_at.year %></h1>
 <p><%= markdown(@blog.body) %></p>
 <%- if @blog.contains_stats? -%>

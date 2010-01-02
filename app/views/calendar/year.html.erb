@@ -1,3 +1,4 @@
+<%- content_for :title, "Archive for " << @year.to_s -%>
 <%- @posts.each do |month, entries| -%>
   <div class="month">
   <h1><%= Date::MONTHNAMES[month] %> <%= @year %></h1>

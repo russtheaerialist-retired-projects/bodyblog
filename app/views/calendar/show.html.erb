@@ -1,2 +1,3 @@
+<%- content_for :title, "Calendar for " << Date::MONTHNAMES[@month] << " " << @year.to_s -%>
 <%= show_calendar :month=>@month, :year=>@year,
        :dates=>@posts, :highlight_today=>true -%>
