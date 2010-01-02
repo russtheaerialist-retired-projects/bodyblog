@@ -1,6 +1,6 @@
 <%- if value -%>
 <tr>
-   <td class="stat_label"><%= label %>:</td>
-   <td class="stat_value"><%= value %> <%= units %></td>
+   <td class="stat_label"><%=h label %>:</td>
+   <td class="stat_value"><%=h value %> <%=h units %></td>
 </tr>
 <%- end -%>

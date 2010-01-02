@@ -1,5 +1,5 @@
 <h1> <%= @blog.created_at.mday %> <%= Date::MONTHNAMES[@blog.created_at.month] %> <%= @blog.created_at.year %></h1>
-<p><%= @blog.body %></p>
+<p><%= markdown(@blog.body) %></p>
 <%- if @blog.contains_stats? -%>
 <h3>Stats</h3>
 <table class="stats">
@@ -20,7 +20,7 @@
   <%- @public_photos.each do |x| -%>
 <div class="full_body_image">
     <%= image_tag formatted_body_photo_path(x, :jpg) -%>
-    <h1><%= x.photo_type.name %></h1>
+    <h1><%= h x.photo_type.name %></h1>
 </div>
   <%- end -%>
 <%- end -%>
