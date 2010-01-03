@@ -7,7 +7,7 @@ class ChartsController < ApplicationController
         @data = Blog.last_n_sleep_entries(100)
 
         respond_to do |format|
-            format.png { generate_sparkline("bar", 8.0, :bottom_bad) }
+            format.png { generate_sparkbar("bar", 8.0, :bottom_bad) }
             format.html
         end
     end
@@ -15,7 +15,7 @@ class ChartsController < ApplicationController
     def calories_in
         @data = Blog.last_n_calories_eaten_entries(100)
         respond_to do |format|
-            format.png { generate_sparkline("bar", 2300, :bottom_good) }
+            format.png { generate_sparkbar("bar", 2300, :bottom_good) }
             format.html
         end
     end
@@ -23,7 +23,7 @@ class ChartsController < ApplicationController
     def calories_out
         @data = Blog.last_n_calories_burned_entries(100)
         respond_to do |format|
-            format.png { generate_sparkline("bar", 2300, :bottom_bad) }
+            format.png { generate_sparkbar("bar", 2300, :bottom_bad) }
             format.html
         end
     end
@@ -31,14 +31,54 @@ class ChartsController < ApplicationController
     def calories_difference
         @data = Blog.last_n_calories_difference_entries(100)
         respond_to do |format|
-            format.png { generate_sparkline("bar", 0, :bottom_good) }
+            format.png { generate_sparkbar("bar", 0, :bottom_good) }
+            format.html
+        end
+    end
+
+    def chest
+        @data = Blog.last_n_chest_entries(100)
+        respond_to do |format|
+            format.png { generate_sparkbar("bar", 40, :bottom_good) }
+            format.html
+        end
+    end
+
+    def waist
+        @data = Blog.last_n_waist_entries(100)
+        respond_to do |format|
+            format.png { generate_sparkbar("bar", 30, :bottom_good) }
+            format.html
+        end
+    end
+
+    def hips
+        @data = Blog.last_n_hips_entries(100)
+        respond_to do |format|
+            format.png { generate_sparkbar("bar", 0, :bottom_bad) }
+            format.html
+        end
+    end
+
+    def weight
+        @data = Blog.last_n_weight_entries(100)
+        respond_to do |format|
+            format.png { generate_sparkbar("bar", 145.0, :bottom_good) }
+            format.html
+        end
+    end
+
+    def bodyfat
+        @data = Blog.last_n_bodyfat_entries(100)
+        respond_to do |format|
+            format.png { generate_sparkbar("bar", 12.0, :bottom_good) }
             format.html
         end
     end
 
     private
 
-    def generate_sparkline(type, upper, colorize)
+    def generate_sparkbar(type, upper, colorize)
         above_color = "#006600"
         below_color = "#ff6600"
         if (colorize == :bottom_good)

@@ -98,4 +98,79 @@ class Blog < ActiveRecord::Base
         retval
     end
 
+    def self.last_n_waist_entries(count)
+        retval = [ ]
+        if (count.present?)
+            Blog.find(:all, :conditions=>["waist > 0"], :order=>"created_at", :limit=>count).each do |blog|
+                retval << Integer(blog.waist)
+            end
+        else
+            Blog.find(:all, :conditions=>["waist > 0"], :order=>"created_at").each do |blog|
+                retval << Integer(blog.waist)
+            end
+        end
+
+        retval
+    end
+
+    def self.last_n_chest_entries(count)
+        retval = [ ]
+        if (count.present?)
+            Blog.find(:all, :conditions=>["chest > 0"], :order=>"created_at", :limit=>count).each do |blog|
+                retval << Integer(blog.chest)
+            end
+        else
+            Blog.find(:all, :conditions=>["chest > 0"], :order=>"created_at").each do |blog|
+                retval << Integer(blog.chest)
+            end
+        end
+
+        retval
+    end
+
+    def self.last_n_hips_entries(count)
+        retval = [ ]
+        if (count.present?)
+            Blog.find(:all, :conditions=>["hips > 0"], :order=>"created_at", :limit=>count).each do |blog|
+                retval << Integer(blog.hips)
+            end
+        else
+            Blog.find(:all, :conditions=>["hips > 0"], :order=>"created_at").each do |blog|
+                retval << Integer(blog.hips)
+            end
+        end
+
+        retval
+    end
+
+    def self.last_n_weight_entries(count)
+        retval = [ ]
+        if (count.present?)
+            Blog.find(:all, :conditions=>["weight > 0"], :order=>"created_at", :limit=>count).each do |blog|
+                retval << Float(blog.weight)
+            end
+        else
+            Blog.find(:all, :conditions=>["weight > 0"], :order=>"created_at").each do |blog|
+                retval << Float(blog.weight)
+            end
+        end
+
+        retval
+     end
+
+    def self.last_n_bodyfat_entries(count)
+        retval = [ ]
+        if (count.present?)
+            Blog.find(:all, :conditions=>["bodyfat > 0"], :order=>"created_at", :limit=>count).each do |blog|
+                retval << Float(blog.bodyfat)
+            end
+        else
+            Blog.find(:all, :conditions=>["bodyfat > 0"], :order=>"created_at").each do |blog|
+                retval << Float(blog.bodyfat)
+            end
+        end
+
+        retval
+     end
+
 end

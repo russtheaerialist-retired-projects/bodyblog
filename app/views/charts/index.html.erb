@@ -5,7 +5,12 @@
 <caption>Body Comp</caption>
 <tbody>
 <tr>
-  <td>Coming soon</t>
+   <td class="stat_label">Weight:</td>
+   <td class="stat_value"><%= image_tag charts_path(:action=>"weight", :format=>"png") %></td>
+</tr>
+<tr>
+   <td class="stat_label">Bodyfat Percent:</td>
+   <td class="stat_value"><%= image_tag charts_path(:action=>"bodyfat", :format=>"png") %></td>
 </tr>
 </tbody>
 </table>
@@ -16,7 +21,16 @@
 <caption>Measurements</caption>
 <tbody>
 <tr>
-  <td>Coming soon</t>
+   <td class="stat_label">Chest:</td>
+   <td class="stat_value"><%= image_tag charts_path(:action=>"chest", :format=>"png") %></td>
+</tr>
+<tr>
+   <td class="stat_label">Waist:</td>
+   <td class="stat_value"><%= image_tag charts_path(:action=>"waist", :format=>"png") %></td>
+</tr>
+<tr>
+   <td class="stat_label">Hips:</td>
+   <td class="stat_value"><%= image_tag charts_path(:action=>"hips", :format=>"png") %></td>
 </tr>
 </tbody>
 </table>
