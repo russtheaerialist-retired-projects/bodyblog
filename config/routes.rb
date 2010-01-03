@@ -21,6 +21,9 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   map.root :controller => "calendar"
+  map.charts_index 'charts', :controller=> "charts"
+  map.charts 'charts/:action', :controller=> "charts"
+  map.charts 'charts/:action.:format', :controller=> "charts"
   map.archive ':year/:month', :controller=>"calendar", :action=>"show"
   map.year ':year', :controller=>"calendar", :action=>"year"
   map.archive_formatted ':year/:month.:format',

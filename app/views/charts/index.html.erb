@@ -1,0 +1,47 @@
+<%- content_for('title', 'Visual Dashboard of Progress') -%>
+<h1>Visual Dashboard of Progress</h1>
+<div id="dashboard_bodycomp">
+<table class="stats">
+<caption>Body Comp</caption>
+<tbody>
+<tr>
+  <td>Coming soon</t>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="dashboard_measurement">
+<table class="stats">
+<caption>Measurements</caption>
+<tbody>
+<tr>
+  <td>Coming soon</t>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="dashboard_energy">
+<table class="stats">
+<caption>Energy</caption>
+<tbody>
+<tr>
+   <td class="stat_label">Calories In:</td>
+   <td class="stat_value"><%= image_tag charts_path(:action=>"calories_in", :format=>"png") %></td>
+</tr>
+<tr>
+   <td class="stat_label">Calories Out:</td>
+   <td class="stat_value"><%= image_tag charts_path(:action=>"calories_out", :format=>"png") %></td>
+</tr>
+<tr>
+   <td class="stat_label">Caloric Difference:</td>
+   <td class="stat_value"><%= image_tag charts_path(:action=>"calories_difference", :format=>"png") %></td>
+</tr>
+<tr>
+   <td class="stat_label">Sleep:</td>
+   <td class="stat_value"><%= image_tag charts_path(:action=>"sleep", :format=>"png") %></td>
+</tr>
+</tbody>
+</table>
+</div>

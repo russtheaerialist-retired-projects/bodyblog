@@ -7,7 +7,7 @@
 
 <%- if @blog.contains_body_composition? -%>
 <table class="stats">
-<caption>Body Composition</caption>
+<caption>Body Comp</caption>
 <tbody>
 <%= render :partial=>"stat", :locals=>{ :value=>@blog.weight,          :label=>"Weight",   :units=>"lbs" } -%>
 <%= render :partial=>"stat", :locals=>{ :value=>@blog.bodyfat,         :label=>"Body Fat", :units=>"%" } -%>

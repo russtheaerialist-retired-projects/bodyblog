@@ -14,6 +14,7 @@
 <h1>Russell's Body Blog</h1>
 <ul id="main_nav">
 <li><%= link_to 'Home', root_path %></li>
+<li><%= link_to 'Progress', charts_path %></li>
 <li><%= link_to 'Archives', year_path(:year=>Time.now.year) %></li>
 <li><%= link_to 'Photos', body_photos_path() %></li>
 <%- if current_user -%>

@@ -37,4 +37,65 @@ class Blog < ActiveRecord::Base
     def contains_energy?
         ate_primal or calories_burned.present? or calories_eaten.present? or hours_slept.present?
     end
+
+    def self.last_n_sleep_entries(count)
+        retval = [ ]
+        if (count.present?)
+            Blog.find(:all, :conditions=>["hours_slept > 0"], :order=>"created_at", :limit=>count).each do |blog|
+                retval << Float(blog.hours_slept)
+            end
+        else
+            Blog.find(:all, :conditions=>["hours_slept > 0"], :order=>"created_at").each do |blog|
+                retval << Float(blog.hours_slept)
+            end
+        end
+
+        retval
+    end
+
+    def self.last_n_calories_eaten_entries(count)
+        retval = [ ]
+        if (count.present?)
+            Blog.find(:all, :conditions=>["calories_eaten > 0"], :order=>"created_at", :limit=>count).each do |blog|
+                retval << Integer(blog.calories_eaten)
+            end
+        else
+            Blog.find(:all, :conditions=>["calories_eaten > 0"], :order=>"created_at").each do |blog|
+                retval << Integer(blog.calories_eaten)
+            end
+        end
+
+        retval
+    end
+
+    def self.last_n_calories_burned_entries(count)
+        retval = [ ]
+        if (count.present?)
+            Blog.find(:all, :conditions=>["calories_burned > 0"], :order=>"created_at", :limit=>count).each do |blog|
+                retval << Integer(blog.calories_burned)
+            end
+        else
+            Blog.find(:all, :conditions=>["calories_burned > 0"], :order=>"created_at").each do |blog|
+                retval << Integer(blog.calories_burned)
+            end
+        end
+
+        retval
+    end
+
+    def self.last_n_calories_difference_entries(count)
+        retval = [ ]
+        if (count.present?)
+            Blog.find(:all, :conditions=>["calories_burned > 0 and calories_eaten > 0"], :order=>"created_at", :limit=>count).each do |blog|
+                retval << (Integer(blog.calories_eaten) - Integer(blog.calories_burned))
+            end
+        else
+            Blog.find(:all, :conditions=>["calories_burned > 0 and calories_eaten > 0"], :order=>"created_at").each do |blog|
+                retval << (Integer(blog.calories_eaten) - Integer(blog.calories_burned))
+            end
+        end
+
+        retval
+    end
+
 end
