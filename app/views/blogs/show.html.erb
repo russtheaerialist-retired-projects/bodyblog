@@ -47,7 +47,7 @@
   <%- end -%>
 <%- end -%>
 <br style="clear: both;">
-<%= id_comments @blog %>
+<!-- %= id_comments @blog % -->
 <%- if current_user.present? -%>
 <ul id="admin_links">
 <li><%= link_to "Attach Photo", :controller=>'body_photos', :action=>'new', :blog_id=>@blog.id -%></li>

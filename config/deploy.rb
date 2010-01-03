@@ -19,6 +19,17 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
   end
+end
+
+  task :setup_body_directory do
+     run "mkdir -p #{shared_path}/images/body"
+  end
+  after "deploy:setup", :setup_body_directory
+
+  task :link_body_directory do
+     run "ln -s #{shared_path}/images/body #{release_path}"
+  end
+  after "deploy:update_code", :link_body_directory
 
   task :setup_production_database_configuration do
    mysql_password = Capistrano::CLI.password_prompt("Production MySQL password: ")
@@ -37,5 +48,3 @@ namespace :deploy do
    run "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
  end
  after "deploy:update_code", :copy_production_database_configuration
-
-end
