@@ -79,6 +79,9 @@ class ChartsController < ApplicationController
     private
 
     def generate_sparkbar(type, upper, colorize)
+        if (@data.count < 1)
+            @data = [ 0 ]
+        end
         above_color = "#006600"
         below_color = "#ff6600"
         if (colorize == :bottom_good)
