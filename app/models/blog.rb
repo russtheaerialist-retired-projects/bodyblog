@@ -173,4 +173,27 @@ class Blog < ActiveRecord::Base
         retval
      end
 
+     def self.last_n_primal_entries(count)
+        retval = [ ]
+        if (count.present?)
+            Blog.find(:all, :order=>"created_at", :limit=>count).each do |blog|
+                if (blog.ate_primal)
+                    retval.push(1)
+                else
+                    retval.push(-2)
+                end
+            end
+        else
+            Blog.find(:all, :order=>"created_at").each do |blog|
+                if (blog.ate_primal)
+                    retval.push(1)
+                else
+                    retval.push(-2)
+                end
+            end
+        end
+
+        retval
+     end
+
 end

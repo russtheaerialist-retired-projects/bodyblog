@@ -37,4 +37,5 @@ ul#main_nav { list-style: none; }
 
 #dashboard_energy,
 #dashboard_bodycomp,
-#dashboard_measurement { width: 300px; float: left; }
+#dashboard_measurement,
+#dashboard_special { width: 300px; float: left; }

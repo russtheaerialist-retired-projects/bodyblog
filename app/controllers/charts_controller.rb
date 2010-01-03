@@ -7,7 +7,7 @@ class ChartsController < ApplicationController
         @data = Blog.last_n_sleep_entries(100)
 
         respond_to do |format|
-            format.png { generate_sparkbar("bar", 8.0, :bottom_bad) }
+            format.png { generate_sparkbar("area", 8.0, :bottom_bad) }
             format.html
         end
     end
@@ -31,7 +31,7 @@ class ChartsController < ApplicationController
     def calories_difference
         @data = Blog.last_n_calories_difference_entries(100)
         respond_to do |format|
-            format.png { generate_sparkbar("bar", 0, :bottom_good) }
+            format.png { generate_sparkbar("area", 0, :bottom_good) }
             format.html
         end
     end
@@ -76,6 +76,14 @@ class ChartsController < ApplicationController
         end
     end
 
+    def primal
+        @data = Blog.last_n_primal_entries(100)
+        respond_to do |format|
+            format.png { generate_sparkbar("whisker", 0, :special) }
+            format.html
+        end
+    end
+
     private
 
     def generate_sparkbar(type, upper, colorize)
@@ -91,6 +99,7 @@ class ChartsController < ApplicationController
         end
             
         send_data(Sparklines.plot(@data, :type=>type, :height=>15, :background_color=>"#CCCCCC",
+             :exception_color=>below_color,
              :upper=>upper, :above_color=>above_color, :below_color=>below_color), :type=>'image/png', :disposition=>'inline')
     end
 end
