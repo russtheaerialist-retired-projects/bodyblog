@@ -1,3 +1,6 @@
 @body_photo.operate do |i|
     i.resize '300x300'
+    i.text @body_photo.created_at.mday.to_s << " " << Date::MONTHNAMES[@body_photo.created_at.month] << " " << @body_photo.created_at.year.to_s, :offset=>"3x3"
+    i.text @body_photo.blog.weight.to_s << " lbs", :offset=>"3x15" if @body_photo.blog.weight.present?
+    i.text @body_photo.blog.bodyfat.to_s << "% bodyfat", :offset=>"3x27" if @body_photo.blog.bodyfat.present?
 end
