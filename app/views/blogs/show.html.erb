@@ -41,7 +41,7 @@
 <h3>Photos</h3>
   <%- @public_photos.each do |x| -%>
 <div class="full_body_image">
-    <%= image_tag formatted_body_photo_path(x, :jpg) -%>
+    <%= image_tag body_photo_path(x, :jpg) -%>
     <h1><%= h x.photo_type.name %></h1>
 </div>
   <%- end -%>
