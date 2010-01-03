@@ -48,3 +48,11 @@ end
    run "cp #{shared_path}/config/database.yml #{release_path}/config/database.yml"
  end
  after "deploy:update_code", :copy_production_database_configuration
+
+task :set_intense_debate_account, :roles => :app do
+    accountno = Capistrano::CLI.ui.ask("Your Intense Debate Account Number: ")
+    set :accountno, accountno
+    run "mv #{release_path}/app/controllers/application_controller.rb #{release_path}/app/controllers/application_controller.rb.orig"
+    run "sed 's/SSacctnoSS/#{accountno}/g' < #{release_path}/app/controllers/application_controller.rb.orig > #{release_path}/app/controllers/application_controller.rb"
+end
+after "deploy:update_code", :set_intense_debate_account
