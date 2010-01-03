@@ -16,7 +16,7 @@ class BodyPhotosController < ApplicationController
     def create 
         @body_photo = BodyPhoto.new(params[:body_photo])
         if (@body_photo.save)
-            redirect_to body_photo_url(@body_photo)
+            redirect_to blog_url(@body_photo.blog)
         else
             flash[:notice] = 'Your photo is invalid'
             render :action => 'new'

@@ -58,7 +58,7 @@
     vertical-align: top;
     text-decoration: none;
     color: #000;
-    padding-top: .5em;
+    overflow: hidden;
 }
 
 #calendar .day {
