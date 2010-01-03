@@ -3,19 +3,40 @@
 <p><%= markdown(@blog.body) %></p>
 <%- if @blog.contains_stats? -%>
 <h3>Stats</h3>
+<%- end -%>
+
+<%- if @blog.contains_body_composition? -%>
 <table class="stats">
+<caption>Body Composition</caption>
 <tbody>
 <%= render :partial=>"stat", :locals=>{ :value=>@blog.weight,          :label=>"Weight",   :units=>"lbs" } -%>
 <%= render :partial=>"stat", :locals=>{ :value=>@blog.bodyfat,         :label=>"Body Fat", :units=>"%" } -%>
+</tbody>
+</table>
+<%- end -%>
+
+<%- if @blog.contains_measurements? -%>
+<table class="stats">
+<caption>Measurements</caption>
+<tbody>
 <%= render :partial=>"stat", :locals=>{ :value=>@blog.chest,           :label=>"Chest",    :units=>"inches" } -%>
 <%= render :partial=>"stat", :locals=>{ :value=>@blog.waist,           :label=>"Waist",    :units=>"inches" } -%>
 <%= render :partial=>"stat", :locals=>{ :value=>@blog.hips,            :label=>"Hips",     :units=>"inches" } -%>
+</tbody>
+</table>
+<%- end -%>
+
+<%- if @blog.contains_energy? -%>
+<table class="stats">
+<caption>Energy</caption>
+<tbody>
 <%= render :partial=>"stat", :locals=>{ :value=>@blog.calories_eaten,  :label=>"In",       :units=>"calories" } -%>
 <%= render :partial=>"stat", :locals=>{ :value=>@blog.calories_burned, :label=>"Out",      :units=>"calories" } -%>
 <%= render :partial=>"stat", :locals=>{ :value=>@blog.hours_slept,     :label=>"Sleep",    :units=>"hours" } -%>
 </tbody>
 </table>
 <%- end -%>
+
 <%- if @public_photos.count > 0 -%>
 <h3>Photos</h3>
   <%- @public_photos.each do |x| -%>

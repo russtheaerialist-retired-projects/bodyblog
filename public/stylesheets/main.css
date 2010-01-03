@@ -20,8 +20,10 @@ ul#main_nav { list-style: none; }
 #content h2 { font-size: 2em; display: inline; }
 #content h3 { font-size: 1.5em; }
 #content p { margin-top: 1em; margin-bottom: 1em; }
-#content .stat_label { font-weight: bold; width: 150px; text-align: right; padding-right: 2em; display: block; float: left; }
+#content .stat_label { font-weight: bold; text-align: right; padding-right: 2em; display: block; float: left; }
 #content .stat_value { }
+#content .stats { margin-left: 2em; }
+#content .stats caption { font-weight: bold; font-size: 1.25em; text-align: left; margin-top: 1em; }
 
 #content .full_body_image { padding: .5em 2px .5em 2px; background: #FF6600; color: #000; width: 300px; margin: 1em; float: left; } 
 #content .full_body_image img { display: block; }

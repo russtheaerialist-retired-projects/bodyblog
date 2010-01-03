@@ -34,6 +34,11 @@
 </p>
 <h3>Energy</h3>
 <p>
+   <%= f.label(:ate_primal) %>
+   <%= f.check_box(:ate_primal) %>
+   <%- if @blog.errors.on(:ate_primal) %><span class="form_error"><%= @blog.errors.on(:ate_primal) %></span><% end -%>
+</p>
+<p>
    <%= f.label(:calories_eaten) %>
    <%= f.text_field(:calories_eaten) %> calories
    <%- if @blog.errors.on(:calories_eaten) %><span class="form_error"><%= @blog.errors.on(:calories_eaten) %></span><% end -%>
@@ -45,7 +50,7 @@
 </p>
 <p>
    <%= f.label(:hours_slept) %>
-   <%= f.text_field(:hours_slept) %> calories
+   <%= f.text_field(:hours_slept) %> hours
    <%- if @blog.errors.on(:hours_slept) %><span class="form_error"><%= @blog.errors.on(:hours_slept) %></span><% end -%>
 </p>
 <p>

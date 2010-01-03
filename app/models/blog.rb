@@ -23,6 +23,18 @@ class Blog < ActiveRecord::Base
     end
 
     def contains_stats?
-        weight or waist or chest or hips or bodyfat or calories_burned or calories_eaten or hours_slept
+        contains_body_composition? or contains_measurements? or contains_energy?
+    end
+
+    def contains_body_composition?
+        weight.present? or bodyfat.present?
+    end
+
+    def contains_measurements?
+        waist.present? or chest.present? or hips.present?
+    end
+
+    def contains_energy?
+        ate_primal or calories_burned.present? or calories_eaten.present? or hours_slept.present?
     end
 end
