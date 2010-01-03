@@ -10,7 +10,7 @@ a { color: #FF6600; }
 ul#main_nav { list-style: none; }
 #main_nav li { float: left; }
 #main_nav li a { display: block; width: 150px; padding: 5px; margin-right: 5px; background-color: #CCCCCC; color: #000; text-decoration: none }
-#main_nav li a:hover { display: block; width: 200px; padding: 5px; margin-right: 5px; background-color: #FF6600; color: #000; text-decoration: none }
+#main_nav li a:hover { display: block; width: 150px; padding: 5px; margin-right: 5px; background-color: #FF6600; color: #000; text-decoration: none }
 
 
 #footer { text-align: center; margin-top: 1em; font-size: .6em; clear: both; }
