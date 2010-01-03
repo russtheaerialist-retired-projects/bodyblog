@@ -16,7 +16,11 @@
 <li><%= link_to 'Home', root_path %></li>
 <li><%= link_to 'Archives', year_path(:year=>Time.now.year) %></li>
 <li><%= link_to 'Photos', body_photos_path() %></li>
-<%- if current_user %><li <%= link_to 'Create Entry', new_blog_path() %></li><% end -%>
+<%- if current_user -%>
+<li <%= link_to 'Create Entry', new_blog_path() %></li>
+<%- else -%>
+<li <%= link_to 'Login', new_user_session_path() %></li>
+<% end -%>
 </ul>
 <p style="color: green"><%=h flash[:notice] %></p>
 </div>
