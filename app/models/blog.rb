@@ -22,6 +22,10 @@ class Blog < ActiveRecord::Base
         retval
     end
 
+    def title
+        created_at.mday.to_s + " " + Date::MONTHNAMES[created_at.month] + " " + created_at.year.to_s
+    end
+
     def contains_stats?
         contains_body_composition? or contains_measurements? or contains_energy?
     end
