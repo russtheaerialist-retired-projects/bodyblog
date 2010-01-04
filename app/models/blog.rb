@@ -43,7 +43,7 @@ class Blog < ActiveRecord::Base
     end
 
     def contains_special?
-        ate_primal or shaved or exercised
+        ate_primal or shaved or exercised or orgasm
     end
 
     def self.last_n_sleep_entries(count)
