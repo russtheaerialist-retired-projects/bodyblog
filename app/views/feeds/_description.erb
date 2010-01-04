@@ -1,0 +1,5 @@
+<%= markdown(blog.body) %>
+<%- body_photo = BodyPhoto.find_first_displayable_for_blog(blog) -%>
+<%- if (body_photo) -%>
+<%= image_tag thumbnail_body_photo_url(body_photo, "jpg") %>
+<%- end -%>
