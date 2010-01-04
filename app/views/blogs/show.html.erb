@@ -41,9 +41,10 @@
 <table class="stats">
 <caption>Accomplishments</caption>
 <tbody>
-<%= render :partial=>"stat", :locals=>{ :value=>@blog.ate_primal,   :label=>"Ate Primal Today?",    :units=>"" } -%>
-<%= render :partial=>"stat", :locals=>{ :value=>@blog.shaved,        :label=>"Shaved Today?",       :units=>"" } -%>
-<%= render :partial=>"stat", :locals=>{ :value=>@blog.exercised,     :label=>"Exercised Today?",    :units=>"" } -%>
+<%= render :partial=>"stat", :locals=>{ :value=>@blog.ate_primal, :label=>"Ate Primal Today?", :units=>"" } -%>
+<%= render :partial=>"stat", :locals=>{ :value=>@blog.shaved,     :label=>"Shaved Today?",     :units=>"" } -%>
+<%= render :partial=>"stat", :locals=>{ :value=>@blog.exercised,  :label=>"Exercised Today?",  :units=>"" } -%>
+<%= render :partial=>"stat", :locals=>{ :value=>@blog.orgasm,     :label=>"Orgasmed Today?",   :units=>"" } -%>
 </tbody>
 </table>
 <%- end -%>

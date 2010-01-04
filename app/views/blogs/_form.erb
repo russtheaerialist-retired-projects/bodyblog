@@ -65,6 +65,11 @@
    <%- if @blog.errors.on(:exercised) %><span class="form_error"><%= @blog.errors.on(:exercised) %></span><% end -%>
 </p>
 <p>
+   <%= f.label(:orgasm) %>
+   <%= f.check_box(:orgasm) %>
+   <%- if @blog.errors.on(:orgasm) %><span class="form_error"><%= @blog.errors.on(:orgasm) %></span><% end -%>
+</p>
+<p>
    <%= f.submit "Post" %>
 </p>
 <% end %>

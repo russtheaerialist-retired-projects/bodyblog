@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100103235430) do
+ActiveRecord::Schema.define(:version => 20100104161354) do
 
   create_table "blogs", :force => true do |t|
     t.text     "body"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20100103235430) do
     t.boolean  "ate_primal"
     t.boolean  "shaved"
     t.boolean  "exercised"
+    t.boolean  "orgasm"
   end
 
   create_table "body_photos", :force => true do |t|
