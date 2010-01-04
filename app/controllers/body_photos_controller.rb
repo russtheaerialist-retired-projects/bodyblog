@@ -10,7 +10,7 @@ class BodyPhotosController < ApplicationController
     end
 
     def index
-        @body_photos = BodyPhoto.find_all_by_public(nil)
+        @body_photos = BodyPhoto.find_all_by_public(true)
     end
 
     def create 
