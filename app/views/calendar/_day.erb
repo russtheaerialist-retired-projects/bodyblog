@@ -19,6 +19,9 @@ class="<%- if is_today -%>today<%- else -%>highlight<%- end -%>"
 <%- if post.weight -%>
 <span class="weight">W</span>
 <%- end -%>
+<%- if post.bodyfat -%>
+<span class="bodyfat">%</span>
+<%- end -%>
 <%- if post.waist -%>
 <span class="waist">T</span>
 <%- end -%>
@@ -28,9 +31,6 @@ class="<%- if is_today -%>today<%- else -%>highlight<%- end -%>"
 <%- if post.hips -%>
 <span class="hips">H</span>
 <%- end -%>
-<%- if post.bodyfat -%>
-<span class="bodyfat">%</span>
-<%- end -%>
 <%- if post.calories_burned -%>
 <span class="burned">B</span>
 <%- end -%>
@@ -39,6 +39,15 @@ class="<%- if is_today -%>today<%- else -%>highlight<%- end -%>"
 <%- end -%>
 <%- if post.hours_slept -%>
 <span class="slept">S</span>
+<%- end -%>
+<%- if post.ate_primal -%>
+<span class="primal">P</span>
+<%- end -%>
+<%- if post.shaved -%>
+<span class="shaved">V</span>
+<%- end -%>
+<%- if post.exercised -%>
+<span class="exercised">X</span>
 <%- end -%>
 </a>
 </td>

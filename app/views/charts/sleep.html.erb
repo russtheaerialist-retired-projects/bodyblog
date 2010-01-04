@@ -1,1 +1,10 @@
-<%= @data %>
+<%- content_for(:title, "Sleep Trends") -%>
+<h1>Sleep Trends</h1>
+<%- chart = GoogleChart.bar_vertical_stacked_450x300(@data)
+    chart.title = "Sleep (hours)"
+    chart.colors = [ "FF6600" ]
+    chart.show_labels = false
+ -%>
+<div style="clear: both">
+<%= image_tag chart.to_url -%>
+</div>

@@ -7,6 +7,7 @@ class GoogleChart
   DATA_VAR = 'chd'.freeze
   LABELS_VAR = 'chl'.freeze
   COLORS_VAR = 'chco'.freeze
+  BACKGROUND_VAR = 'chf' . freeze
   BAR_WIDTH_SPACING_VAR = 'chbh'.freeze
   TYPE_VAR_VALUES = {
     :line => 'lc',
@@ -76,6 +77,7 @@ class GoogleChart
     params[DATA_VAR] = encode_data
     params[LABELS_VAR] = join_labels if (@labels && @show_labels)
     params[COLORS_VAR] = join(@colors) if (@colors)
+    params[BACKGROUND_VAR] = "bg,s,CCCCCC"
     
     chart_params = []
     params.each_pair do |key, value|

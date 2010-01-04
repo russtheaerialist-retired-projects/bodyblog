@@ -1,1 +1,10 @@
-sleep.html.erb
+<%- content_for(:title, "Calories In Trends") -%>
+<h1>Calories In Trends</h1>
+<%- chart = GoogleChart.bar_vertical_stacked_450x300(@data)
+    chart.title = "Calories In (kcal)"
+    chart.colors = [ "FF6600" ]
+    chart.show_labels = false
+ -%>
+<div style="clear: both">
+<%= image_tag chart.to_url -%>
+</div>

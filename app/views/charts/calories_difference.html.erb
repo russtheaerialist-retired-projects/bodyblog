@@ -1,7 +1,7 @@
-<%- content_for(:title, "Weight Trends") -%>
-<h1>Weight Trends</h1>
+<%- content_for(:title, "Calories Excess Trends") -%>
+<h1>Calories Excess Trends</h1>
 <%- chart = GoogleChart.bar_vertical_stacked_450x300(@data)
-    chart.title = "Weight (lbs)"
+    chart.title = "Calories Excess (kcal)"
     chart.colors = [ "FF6600" ]
     chart.show_labels = false
  -%>
