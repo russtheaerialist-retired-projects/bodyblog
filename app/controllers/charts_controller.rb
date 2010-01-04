@@ -84,6 +84,22 @@ class ChartsController < ApplicationController
         end
     end
 
+    def shaved
+        @data = Blog.last_n_shaved_entries(100)
+        respond_to do |format|
+            format.png { generate_sparkbar("whisker", 0, :special) }
+            format.html
+        end
+    end
+
+    def exercised
+        @data = Blog.last_n_exercised_entries(100)
+        respond_to do |format|
+            format.png { generate_sparkbar("whisker", 0, :special) }
+            format.html
+        end
+    end
+
     private
 
     def generate_sparkbar(type, upper, colorize)

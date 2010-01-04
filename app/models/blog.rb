@@ -39,161 +39,86 @@ class Blog < ActiveRecord::Base
     end
 
     def self.last_n_sleep_entries(count)
-        retval = [ ]
-        if (count.present?)
-            Blog.find(:all, :conditions=>["hours_slept > 0"], :order=>"created_at", :limit=>count).each do |blog|
-                retval << Float(blog.hours_slept)
-            end
-        else
-            Blog.find(:all, :conditions=>["hours_slept > 0"], :order=>"created_at").each do |blog|
-                retval << Float(blog.hours_slept)
-            end
+        Blog.find(:all, :conditions=>["hours_slept > 0"], :order=>"created_at", :limit=>count).map do |blog|
+            Float(blog.hours_slept)
         end
-
-        retval
     end
 
     def self.last_n_calories_eaten_entries(count)
-        retval = [ ]
-        if (count.present?)
-            Blog.find(:all, :conditions=>["calories_eaten > 0"], :order=>"created_at", :limit=>count).each do |blog|
-                retval << Integer(blog.calories_eaten)
-            end
-        else
-            Blog.find(:all, :conditions=>["calories_eaten > 0"], :order=>"created_at").each do |blog|
-                retval << Integer(blog.calories_eaten)
-            end
+        Blog.find(:all, :conditions=>["calories_eaten > 0"], :order=>"created_at", :limit=>count).map do |blog|
+            Integer(blog.calories_eaten)
         end
-
-        retval
     end
 
     def self.last_n_calories_burned_entries(count)
-        retval = [ ]
-        if (count.present?)
-            Blog.find(:all, :conditions=>["calories_burned > 0"], :order=>"created_at", :limit=>count).each do |blog|
-                retval << Integer(blog.calories_burned)
-            end
-        else
-            Blog.find(:all, :conditions=>["calories_burned > 0"], :order=>"created_at").each do |blog|
-                retval << Integer(blog.calories_burned)
-            end
+        Blog.find(:all, :conditions=>["calories_burned > 0"], :order=>"created_at", :limit=>count).map do |blog|
+            Integer(blog.calories_burned)
         end
-
-        retval
     end
 
     def self.last_n_calories_difference_entries(count)
-        retval = [ ]
-        if (count.present?)
-            Blog.find(:all, :conditions=>["calories_burned > 0 and calories_eaten > 0"], :order=>"created_at", :limit=>count).each do |blog|
-                retval << (Integer(blog.calories_eaten) - Integer(blog.calories_burned))
-            end
-        else
-            Blog.find(:all, :conditions=>["calories_burned > 0 and calories_eaten > 0"], :order=>"created_at").each do |blog|
-                retval << (Integer(blog.calories_eaten) - Integer(blog.calories_burned))
-            end
+        Blog.find(:all, :conditions=>["calories_burned > 0 and calories_eaten > 0"], :order=>"created_at", :limit=>count).map do |blog|
+            Integer(blog.calories_eaten) - Integer(blog.calories_burned)
         end
-
-        retval
     end
 
     def self.last_n_waist_entries(count)
-        retval = [ ]
-        if (count.present?)
-            Blog.find(:all, :conditions=>["waist > 0"], :order=>"created_at", :limit=>count).each do |blog|
-                retval << Integer(blog.waist)
-            end
-        else
-            Blog.find(:all, :conditions=>["waist > 0"], :order=>"created_at").each do |blog|
-                retval << Integer(blog.waist)
-            end
+        Blog.find(:all, :conditions=>["waist > 0"], :order=>"created_at", :limit=>count).map do |blog|
+            Integer(blog.waist)
         end
-
-        retval
     end
 
     def self.last_n_chest_entries(count)
-        retval = [ ]
-        if (count.present?)
-            Blog.find(:all, :conditions=>["chest > 0"], :order=>"created_at", :limit=>count).each do |blog|
-                retval << Integer(blog.chest)
-            end
-        else
-            Blog.find(:all, :conditions=>["chest > 0"], :order=>"created_at").each do |blog|
-                retval << Integer(blog.chest)
-            end
+        Blog.find(:all, :conditions=>["chest > 0"], :order=>"created_at", :limit=>count).map do |blog|
+            Integer(blog.chest)
         end
-
-        retval
     end
 
     def self.last_n_hips_entries(count)
-        retval = [ ]
-        if (count.present?)
-            Blog.find(:all, :conditions=>["hips > 0"], :order=>"created_at", :limit=>count).each do |blog|
-                retval << Integer(blog.hips)
-            end
-        else
-            Blog.find(:all, :conditions=>["hips > 0"], :order=>"created_at").each do |blog|
-                retval << Integer(blog.hips)
-            end
+        Blog.find(:all, :conditions=>["hips > 0"], :order=>"created_at", :limit=>count).map do |blog|
+            Integer(blog.hips)
         end
-
-        retval
     end
 
     def self.last_n_weight_entries(count)
-        retval = [ ]
-        if (count.present?)
-            Blog.find(:all, :conditions=>["weight > 0"], :order=>"created_at", :limit=>count).each do |blog|
-                retval << Float(blog.weight)
-            end
-        else
-            Blog.find(:all, :conditions=>["weight > 0"], :order=>"created_at").each do |blog|
-                retval << Float(blog.weight)
-            end
+        Blog.find(:all, :conditions=>["weight > 0"], :order=>"created_at", :limit=>count).map do |blog|
+            Float(blog.weight)
         end
-
-        retval
      end
 
     def self.last_n_bodyfat_entries(count)
-        retval = [ ]
-        if (count.present?)
-            Blog.find(:all, :conditions=>["bodyfat > 0"], :order=>"created_at", :limit=>count).each do |blog|
-                retval << Float(blog.bodyfat)
-            end
-        else
-            Blog.find(:all, :conditions=>["bodyfat > 0"], :order=>"created_at").each do |blog|
-                retval << Float(blog.bodyfat)
-            end
+        Blog.find(:all, :conditions=>["bodyfat > 0"], :order=>"created_at", :limit=>count).map do |blog|
+            Float(blog.bodyfat)
         end
-
-        retval
      end
 
      def self.last_n_primal_entries(count)
-        retval = [ ]
-        if (count.present?)
-            Blog.find(:all, :order=>"created_at", :limit=>count).each do |blog|
-                if (blog.ate_primal)
-                    retval.push(1)
-                else
-                    retval.push(-2)
-                end
-            end
-        else
-            Blog.find(:all, :order=>"created_at").each do |blog|
-                if (blog.ate_primal)
-                    retval.push(1)
-                else
-                    retval.push(-2)
-                end
+        Blog.find(:all, :order=>"created_at", :limit=>count).map do |item|
+            if (item.ate_primal)
+                1
+            else
+                -2
             end
         end
-
-        retval
      end
 
+     def self.last_n_shaved_entries(count)
+        Blog.find(:all, :order=>"created_at", :limit=>count).map do |item|
+            if (item.shaved)
+                1
+            else
+                -2
+            end
+        end
+     end
+
+     def self.last_n_exercised_entries(count)
+        Blog.find(:all, :order=>"created_at", :limit=>count).map do |item|
+            if (item.exercised)
+                1
+            else
+                -2
+            end
+        end
+     end
 end
