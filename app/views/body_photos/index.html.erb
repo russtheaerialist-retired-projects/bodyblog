@@ -1,5 +1,5 @@
 <p>
 <% for body_photo in @body_photos %>
-    <%= image_tag thumbnail_body_photo_path(body_photo, :jpg) %>
+    <%= link_to image_tag(thumbnail_body_photo_path(body_photo, :jpg)), blog_url(body_photo.blog) %>
 <% end %>
 </p>
