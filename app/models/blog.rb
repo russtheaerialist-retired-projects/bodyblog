@@ -27,7 +27,7 @@ class Blog < ActiveRecord::Base
     end
 
     def contains_stats?
-        contains_body_composition? or contains_measurements? or contains_energy?
+        contains_body_composition? or contains_measurements? or contains_energy? or contains_special?
     end
 
     def contains_body_composition?
@@ -39,7 +39,11 @@ class Blog < ActiveRecord::Base
     end
 
     def contains_energy?
-        ate_primal or calories_burned.present? or calories_eaten.present? or hours_slept.present?
+        calories_burned.present? or calories_eaten.present? or hours_slept.present?
+    end
+
+    def contains_special?
+        ate_primal or shaved or exercised
     end
 
     def self.last_n_sleep_entries(count)

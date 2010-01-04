@@ -34,11 +34,6 @@
 </p>
 <h3>Energy</h3>
 <p>
-   <%= f.label(:ate_primal) %>
-   <%= f.check_box(:ate_primal) %>
-   <%- if @blog.errors.on(:ate_primal) %><span class="form_error"><%= @blog.errors.on(:ate_primal) %></span><% end -%>
-</p>
-<p>
    <%= f.label(:calories_eaten) %>
    <%= f.text_field(:calories_eaten) %> calories
    <%- if @blog.errors.on(:calories_eaten) %><span class="form_error"><%= @blog.errors.on(:calories_eaten) %></span><% end -%>
@@ -52,6 +47,22 @@
    <%= f.label(:hours_slept) %>
    <%= f.text_field(:hours_slept) %> hours
    <%- if @blog.errors.on(:hours_slept) %><span class="form_error"><%= @blog.errors.on(:hours_slept) %></span><% end -%>
+</p>
+<h3>Accomplishments</h3>
+<p>
+   <%= f.label(:ate_primal) %>
+   <%= f.check_box(:ate_primal) %>
+   <%- if @blog.errors.on(:ate_primal) %><span class="form_error"><%= @blog.errors.on(:ate_primal) %></span><% end -%>
+</p>
+<p>
+   <%= f.label(:shaved) %>
+   <%= f.check_box(:shaved) %>
+   <%- if @blog.errors.on(:shaved) %><span class="form_error"><%= @blog.errors.on(:shaved) %></span><% end -%>
+</p>
+<p>
+   <%= f.label(:exercised) %>
+   <%= f.check_box(:exercised) %>
+   <%- if @blog.errors.on(:exercised) %><span class="form_error"><%= @blog.errors.on(:exercised) %></span><% end -%>
 </p>
 <p>
    <%= f.submit "Post" %>

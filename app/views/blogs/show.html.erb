@@ -37,6 +37,17 @@
 </table>
 <%- end -%>
 
+<%- if @blog.contains_special? -%>
+<table class="stats">
+<caption>Accomplishments</caption>
+<tbody>
+<%= render :partial=>"stat", :locals=>{ :value=>@blog.ate_primal,   :label=>"Ate Primal Today?",    :units=>"" } -%>
+<%= render :partial=>"stat", :locals=>{ :value=>@blog.shaved,        :label=>"Shaved Today?",       :units=>"" } -%>
+<%= render :partial=>"stat", :locals=>{ :value=>@blog.exercised,     :label=>"Exercised Today?",    :units=>"" } -%>
+</tbody>
+</table>
+<%- end -%>
+
 <%- if @public_photos.count > 0 -%>
 <h3>Photos</h3>
   <%- @public_photos.each do |x| -%>
