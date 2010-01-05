@@ -1,0 +1,2 @@
+class InsanityFitTestResultsController < ApplicationController
+end

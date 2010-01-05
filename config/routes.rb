@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :insanity_fit_test_results
+
   map.resources :photo_types
 
   map.resources :body_photos, :member => { :calendar => :get,

@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  switch_kicks: 1
+  power_jacks: 1
+  power_knees: 1
+  globe_jumps: 1
+  suicide_jumps: 1
+  push_up_jacks: 
+  low_plank_obliques: 1
+
+two:
+  switch_kicks: 1
+  power_jacks: 1
+  power_knees: 1
+  globe_jumps: 1
+  suicide_jumps: 1
+  push_up_jacks: 
+  low_plank_obliques: 1
