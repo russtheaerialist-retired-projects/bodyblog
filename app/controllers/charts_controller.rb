@@ -7,7 +7,7 @@ class ChartsController < ApplicationController
         @data = Blog.last_n_sleep_entries(100)
 
         respond_to do |format|
-            format.png { generate_sparkbar("area", 8.0, :bottom_bad) }
+            format.png { generate_sparkbar("area", 0.0, 8.0, :bottom_bad) }
             format.html
         end
     end
@@ -15,7 +15,7 @@ class ChartsController < ApplicationController
     def calories_in
         @data = Blog.last_n_calories_eaten_entries(100)
         respond_to do |format|
-            format.png { generate_sparkbar("bar", 2300, :bottom_good) }
+            format.png { generate_sparkbar("bar", 1200, 2300, :bottom_good) }
             format.html
         end
     end
@@ -23,7 +23,7 @@ class ChartsController < ApplicationController
     def calories_out
         @data = Blog.last_n_calories_burned_entries(100)
         respond_to do |format|
-            format.png { generate_sparkbar("bar", 2300, :bottom_bad) }
+            format.png { generate_sparkbar("bar", 1200, 2300, :bottom_bad) }
             format.html
         end
     end
@@ -31,7 +31,7 @@ class ChartsController < ApplicationController
     def calories_difference
         @data = Blog.last_n_calories_difference_entries(100)
         respond_to do |format|
-            format.png { generate_sparkbar("area", 0, :bottom_good) }
+            format.png { generate_sparkbar("area", 0, 0, :bottom_good) }
             format.html
         end
     end
@@ -39,7 +39,7 @@ class ChartsController < ApplicationController
     def chest
         @data = Blog.last_n_chest_entries(100)
         respond_to do |format|
-            format.png { generate_sparkbar("bar", 40, :bottom_good) }
+            format.png { generate_sparkbar("bar", 25, 40, :bottom_good) }
             format.html
         end
     end
@@ -47,7 +47,7 @@ class ChartsController < ApplicationController
     def waist
         @data = Blog.last_n_waist_entries(100)
         respond_to do |format|
-            format.png { generate_sparkbar("bar", 30, :bottom_good) }
+            format.png { generate_sparkbar("bar", 25, 30, :bottom_good) }
             format.html
         end
     end
@@ -55,7 +55,7 @@ class ChartsController < ApplicationController
     def hips
         @data = Blog.last_n_hips_entries(100)
         respond_to do |format|
-            format.png { generate_sparkbar("bar", 0, :bottom_bad) }
+            format.png { generate_sparkbar("bar", 25, 0, :bottom_bad) }
             format.html
         end
     end
@@ -63,7 +63,7 @@ class ChartsController < ApplicationController
     def weight
         @data = Blog.last_n_weight_entries(100)
         respond_to do |format|
-            format.png { generate_sparkbar("bar", 145.0, :bottom_good) }
+            format.png { generate_sparkbar("bar", 100.0, 145.0, :bottom_good) }
             format.html
         end
     end
@@ -71,7 +71,7 @@ class ChartsController < ApplicationController
     def bodyfat
         @data = Blog.last_n_bodyfat_entries(100)
         respond_to do |format|
-            format.png { generate_sparkbar("bar", 12.0, :bottom_good) }
+            format.png { generate_sparkbar("bar", 5.0, 12.0, :bottom_good) }
             format.html
         end
     end
@@ -79,7 +79,7 @@ class ChartsController < ApplicationController
     def primal
         @data = Blog.last_n_primal_entries(100)
         respond_to do |format|
-            format.png { generate_sparkbar("whisker", 0, :special) }
+            format.png { generate_sparkbar("whisker", 0, 0, :special) }
             format.html
         end
     end
@@ -87,7 +87,7 @@ class ChartsController < ApplicationController
     def shaved
         @data = Blog.last_n_shaved_entries(100)
         respond_to do |format|
-            format.png { generate_sparkbar("whisker", 0, :special) }
+            format.png { generate_sparkbar("whisker", 0, 0, :special) }
             format.html
         end
     end
@@ -95,14 +95,14 @@ class ChartsController < ApplicationController
     def exercised
         @data = Blog.last_n_exercised_entries(100)
         respond_to do |format|
-            format.png { generate_sparkbar("whisker", 0, :special) }
+            format.png { generate_sparkbar("whisker", 0, 0, :special) }
             format.html
         end
     end
 
     private
 
-    def generate_sparkbar(type, upper, colorize)
+    def generate_sparkbar(type, min_value, upper, colorize)
         if (@data.count < 1)
             @data = [ 0 ]
         end
@@ -115,7 +115,7 @@ class ChartsController < ApplicationController
         end
             
         send_data(Sparklines.plot(@data, :type=>type, :height=>15, :background_color=>"#CCCCCC",
-             :exception_color=>below_color,
+             :min=>min_value, :exception_color=>below_color,
              :upper=>upper, :above_color=>above_color, :below_color=>below_color), :type=>'image/png', :disposition=>'inline')
     end
 end
